@@ -12,7 +12,7 @@ int main(){
     int n; 
     int max = 0;
     scanf("%d", &n);
-    int sense[n+1];
+    int sense[100];
     for(int i = 0; i<n; i++){
         scanf("%d", &sense[i]);
     }
