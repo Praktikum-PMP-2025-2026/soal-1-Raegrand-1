@@ -3,7 +3,7 @@
  //   Nama (NIM)          : Raegrand Archamadeus (13224014)
  //   Nama File           : soal1.c
  //   Deskripsi           : Program recovery data hilang sensor minecraft dengan metode serupa interpolasi data dan mencari
- //                         nilai jumlah maskimum array kontigu
+ //                         nilai jumlah maskimum array kontigu.
 
 # include <stdio.h>
 # include <stdlib.h>
