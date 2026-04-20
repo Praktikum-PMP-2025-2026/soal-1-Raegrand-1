@@ -59,7 +59,7 @@ int main(){
         }
     }
 
-    printf("RECOCVERED");
+    printf("RECOVERED");
     for(int i = 0; i<n; i++){
         printf(" %d", sense[i]);
         max += sense[i];
