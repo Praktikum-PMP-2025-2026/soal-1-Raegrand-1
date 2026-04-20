@@ -8,8 +8,9 @@
 
 
 
-int main(void){
-    int n, max = 0;
+int main(){
+    int n; 
+    int max = 0;
     scanf("%d", &n);
     int sense[n+1];
     for(int i = 0; i<n; i++){
@@ -30,6 +31,5 @@ int main(void){
         max += sense[i];
     }
     printf("\nMAX_SUM %d", max);
-
     return 0;
 }
