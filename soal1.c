@@ -7,21 +7,55 @@
 # include <stdio.h>
 
 
-
 int main(){
     int n; 
     int max = 0;
+    int boundCheck = 0;
+    int status;// 0 = std, 1 = left, 2 = right, 3 = empty
+    int up;
+    int down;
     scanf("%d", &n);
     int sense[100];
     for(int i = 0; i<n; i++){
         scanf("%d", &sense[i]);
     }
-    for(int i = n-1; i >= 0; i--){
+    for(int i = 0; i < n; i++){
         if(sense[i] == -1){
-            if(i == 0){sense[i] = sense[i+1];}
-            else{
-                sense[i] = (sense[i-1] == -1)? sense[i+1] : (sense[i+1]+sense[i-1])/2;
+            up = -1;
+            down = -1;
+            boundCheck = 0;
+            status = 0;
+            for(int j = i; j < n; j++){
+                if(sense[j] != -1){
+                    boundCheck = 1;
+                    up = sense[j];
+                    break;
+                }
             }
+
+            // printf("Bound 1 =%d, ", boundCheck);
+
+            if(boundCheck == 0) status = 1;
+            boundCheck = 0;
+            for(int j = i; j >= 0; j--){
+                if(sense[j] != -1){
+                    boundCheck = 1;
+                    down = sense[j];
+                    break;
+                }
+            }
+
+            // printf("Bound 2=%d,", boundCheck);
+            
+            if(boundCheck == 0 && status == 1)status = 3;
+            else if (boundCheck == 0 && status == 0) status = 2;
+
+            // printf("%d,up %d,down %d\n", status, up, down);
+            
+            if (status == 0)sense[i] = (down + up)/2;
+            else if(status == 1)sense[i] = down;
+            else if(status == 2)sense[i] = up;
+            else if(status ==3) sense[i] = 0;
         }
     }
 
