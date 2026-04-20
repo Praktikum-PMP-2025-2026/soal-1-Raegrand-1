@@ -14,7 +14,7 @@ int floor_keren(float n){
 
 int main(){
     int n; 
-    int max = 0;
+    int max = -999999;
     int boundCheck = 0;
     int status;// 0 = std, 1 = left, 2 = right, 3 = empty
     int up;
@@ -38,8 +38,6 @@ int main(){
                 }
             }
 
-            // printf("Bound 1 =%d, ", boundCheck);
-
             if(boundCheck == 0) status = 1;
             boundCheck = 0;
             for(int j = i; j >= 0; j--){
@@ -49,13 +47,9 @@ int main(){
                     break;
                 }
             }
-
-            // printf("Bound 2=%d,", boundCheck);
             
             if(boundCheck == 0 && status == 1)status = 3;
             else if (boundCheck == 0 && status == 0) status = 2;
-
-            // printf("%d,up %d,down %d\n", status, up, down);
             
             if (status == 0)sense[i] = floor_keren((float)(down + up)/2.0);
             else if(status == 1)sense[i] = down;
@@ -65,9 +59,13 @@ int main(){
     }
 
     printf("RECOVERED");
+    int temp = 0;
     for(int i = 0; i<n; i++){
-        printf(" %d", sense[i]);
-        max += sense[i];
+        for(int j = i; j<n; j++){
+            temp += sense[j];
+            max = (temp > max)? temp: max;
+        }
+        temp = 0;
     }
     printf("\nMAX_SUM %d", max);
     return 0;
