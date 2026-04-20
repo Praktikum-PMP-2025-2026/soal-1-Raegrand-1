@@ -2,7 +2,8 @@
  //   Hari dan Tanggal    : Senin, 20 April 2026
  //   Nama (NIM)          : Raegrand Archamadeus (13224014)
  //   Nama File           : soal1.c
- //   Deskripsi           : 
+ //   Deskripsi           : Program recovery data hilang sensor minecraft dengan metode serupa interpolasi data dan mencari
+ //                         nilai jumlah maskimum array kontigu
 
 # include <stdio.h>
 # include <stdlib.h>
