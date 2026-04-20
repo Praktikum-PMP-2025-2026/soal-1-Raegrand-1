@@ -8,7 +8,6 @@
 # include <stdlib.h>
 
 int floor_keren(float n){
-    printf("%f", n);
     if(n<0 && (n - (int)n) != 0) return ((int)(n))-1;
     else return (int)n;
 }
