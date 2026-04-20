@@ -5,7 +5,13 @@
  //   Deskripsi           : 
 
 # include <stdio.h>
+# include <stdlib.h>
 
+int floor_keren(float n){
+    printf("%f", n);
+    if(n<0 && (n - (int)n) != 0) return ((int)(n))-1;
+    else return (int)n;
+}
 
 int main(){
     int n; 
@@ -52,7 +58,7 @@ int main(){
 
             // printf("%d,up %d,down %d\n", status, up, down);
             
-            if (status == 0)sense[i] = (down + up)/2;
+            if (status == 0)sense[i] = floor_keren((float)(down + up)/2.0);
             else if(status == 1)sense[i] = down;
             else if(status == 2)sense[i] = up;
             else if(status ==3) sense[i] = 0;
